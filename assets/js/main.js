@@ -45,3 +45,15 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+pokemonList.addEventListener('click', (event) => {
+    const clickedPokemon = event.target.closest('.pokemon');
+    if (clickedPokemon) {
+        const pokemonNumber = clickedPokemon.querySelector('.number').textContent.slice(1); // Pega o número do Pokémon
+        const pokemonName = clickedPokemon.querySelector('.name').textContent; // Pega o nome do Pokémon
+        const pokemonType = clickedPokemon.querySelector('.type').textContent; // Pega o tipo do Pokémon
+
+        // Redireciona para a página de detalhes com os parâmetros na URL
+        window.location.href = `pokemon-details.html?number=${pokemonNumber}&name=${pokemonName}&type=${pokemonType}`;
+    }
+});
